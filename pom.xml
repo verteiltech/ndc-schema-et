@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.verteil.schema</groupId>
+    <artifactId>ndc-schema-et</artifactId>
+    <version>1.1.0-SNAPSHOT</version>
+
+    <name>IATA NDC XML Schema Bindings Libraries of Ethiopian Airlines</name>
+    <description>
+        Java bindings for various Air France IATA NDC schemas versions
+    </description>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <scm>
+        <connection>scm:git:git@github.com:verteiltech/ndc-schema-et.git</connection>
+        <developerConnection>scm:git:git@github.com:verteiltech/ndc-schema-et.git
+        </developerConnection>
+        <url>https://github.com/verteiltech/ndc-schema-et/tree/master</url>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>vdc-repository-libs-release-local</id>
+            <name>vdc-repository-libs-release-local</name>
+            <url>https://vdc-repository-683455398069.d.codeartifact.ap-south-1.amazonaws.com/maven/libs-release-local/</url>
+        </repository>
+        <snapshotRepository>
+            <id>vdc-repository-libs-snapshot-local</id>
+            <name>vdc-repository-libs-snapshot-local</name>
+            <url>https://vdc-repository-683455398069.d.codeartifact.ap-south-1.amazonaws.com/maven/libs-snapshot-local/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.2.5</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- JAXB xjc plugin that invokes the xjc compiler to compile XML schema into Java classes.-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>2.5.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- The schema directory or xsd files. -->
+                    <sources>
+                        <source>${basedir}/src/main/resources/xsd</source>
+                    </sources>
+                    <!-- The package in which the source files will be generated. -->
+                    <packageName>com.verteil.schemas.ndc17_2et</packageName>
+                    <!-- The working directory to create the generated java source files. -->
+                    <outputDirectory>${basedir}/src/main/java</outputDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
