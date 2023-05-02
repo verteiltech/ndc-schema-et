@@ -31,7 +31,7 @@
 								</xsd:annotation>
 								<xsd:complexType>
 									<xsd:sequence>
-										<xsd:element name="PassengerReference" type="xsd:IDREF">
+										<xsd:element ref="PassengerReferences">
 											<xsd:annotation>
 												<xsd:documentation>Association to a passenger.</xsd:documentation>
 											</xsd:annotation>

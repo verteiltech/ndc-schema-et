@@ -6,11 +6,11 @@
 
     <groupId>com.verteil.schema</groupId>
     <artifactId>ndc-schema-et</artifactId>
-    <version>1.1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <name>IATA NDC XML Schema Bindings Libraries of Ethiopian Airlines</name>
     <description>
-        Java bindings for various Air France IATA NDC schemas versions
+        Java bindings for Ethiopian Airlines- NDC_17.2
     </description>
 
     <properties>
@@ -29,12 +29,15 @@
         <repository>
             <id>vdc-repository-libs-release-local</id>
             <name>vdc-repository-libs-release-local</name>
-            <url>https://vdc-repository-683455398069.d.codeartifact.ap-south-1.amazonaws.com/maven/libs-release-local/</url>
+            <url>https://vdc-repository-683455398069.d.codeartifact.ap-south-1.amazonaws.com/maven/libs-release-local/
+            </url>
         </repository>
         <snapshotRepository>
             <id>vdc-repository-libs-snapshot-local</id>
             <name>vdc-repository-libs-snapshot-local</name>
-            <url>https://vdc-repository-683455398069.d.codeartifact.ap-south-1.amazonaws.com/maven/libs-snapshot-local/</url>
+            <url>
+                https://vdc-repository-683455398069.d.codeartifact.ap-south-1.amazonaws.com/maven/libs-snapshot-local/
+            </url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -49,7 +52,6 @@
             <artifactId>jaxb-impl</artifactId>
             <version>2.2.5</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -61,24 +63,20 @@
                 <version>2.5.0</version>
                 <executions>
                     <execution>
+                        <id>Generate Java Classes from XSD for ET.</id>
                         <goals>
                             <goal>xjc</goal>
                         </goals>
+                        <configuration>
+                            <sources>
+                                <source>${basedir}/src/main/resources/xsd</source>
+                            </sources>
+                            <packageName>com.verteil.schemas.ndc17_2et</packageName>
+                            <outputDirectory>${basedir}/src/main/java</outputDirectory>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <!-- The schema directory or xsd files. -->
-                    <sources>
-                        <source>${basedir}/src/main/resources/xsd</source>
-                    </sources>
-                    <!-- The package in which the source files will be generated. -->
-                    <packageName>com.verteil.schemas.ndc17_2et</packageName>
-                    <!-- The working directory to create the generated java source files. -->
-                    <outputDirectory>${basedir}/src/main/java</outputDirectory>
-                </configuration>
             </plugin>
         </plugins>
     </build>
-
-
 </project>
