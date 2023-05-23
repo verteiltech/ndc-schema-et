@@ -12321,6 +12321,16 @@ Encoding Scheme: IATA/ A4A (three character) Airport or City Code</xsd:documenta
 			<xsd:documentation source="description" xml:lang="en">Association to multiple Passenger instance(s). Example: pax1 pax2</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
+    <xsd:element name="SegmentRef" type="InstanceClassRefSimpleType">
+        <xsd:annotation>
+            <xsd:documentation source="description" xml:lang="en">Association to multiple Passenger instance(s). Example: pax1 pax2</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="PassengerRef" type="InstanceClassRefSimpleType">
+        <xsd:annotation>
+            <xsd:documentation source="description" xml:lang="en">Association to multiple Passenger instance(s). Example: pax1 pax2</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
 	<!--     << Price Class>>-->
 	<xsd:element name="PriceClassReference" type="xsd:IDREF">
 		<xsd:annotation>
@@ -16213,19 +16223,21 @@ Note: This includes  surcharges (if applicable).</xsd:documentation>
 							</xsd:annotation>
 							<xsd:complexType>
 								<xsd:sequence>
-									<xsd:element name="PassengerRef" type="xsd:IDREF"/>
+                                    <!--<xsd:element ref="PassengerReferences"/>-->
+                                    <xsd:element name="PassengerRef" type="xsd:IDREFS"/>
 									<xsd:element name="ServiceRef" type="xsd:IDREF" minOccurs="0">
 										<xsd:annotation>
 											<xsd:documentation>Create dependencies with parent services to which this particular ServiceItem is linked to (eg. a meal to a flight). Can reference ServiceItems across different OfferItems within the same Offer.</xsd:documentation>
 										</xsd:annotation>
 									</xsd:element>
 									<xsd:choice>
-										<xsd:element name="SegmentRef" type="xsd:IDREF">
+										<xsd:element name="SegmentRef" type="xsd:IDREFS">
 											<xsd:annotation>
 												<xsd:documentation>Reference a segment being sold as part of this OrderItem/Service.</xsd:documentation>
 											</xsd:annotation>
 										</xsd:element>
-										<xsd:element name="ServiceDefinitionRef">
+                                        <!--<xsd:element ref="SegmentReferences"/>-->
+										<!--<xsd:element name="ServiceDefinitionRef">
 											<xsd:complexType>
 												<xsd:simpleContent>
 													<xsd:extension base="xsd:IDREF">
@@ -16237,7 +16249,7 @@ Note: This includes  surcharges (if applicable).</xsd:documentation>
 													</xsd:extension>
 												</xsd:simpleContent>
 											</xsd:complexType>
-										</xsd:element>
+										</xsd:element>-->
 										<xsd:element name="SelectedSeat">
 											<xsd:annotation>
 												<xsd:documentation>The Seat location selected by the Passenger (via SeatAvailability) or assigned by the Airline for a given Segment.</xsd:documentation>
