@@ -471,7 +471,7 @@ Example: FlightSegmentList</xsd:documentation>
 		<xsd:annotation>
 			<xsd:documentation source="description" xml:lang="en">Policy and object association(s).</xsd:documentation>
 		</xsd:annotation>
-		<xsd:attribute name="refs" type="InstanceClassRefSimpleType" use="optional">
+		<xsd:attribute name="refs" type="xsd:string" use="optional">
 			<xsd:annotation>
 				<xsd:documentation source="description" xml:lang="en">Object association(s) between this object and any object instance(s).</xsd:documentation>
 			</xsd:annotation>
