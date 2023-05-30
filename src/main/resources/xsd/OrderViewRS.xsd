@@ -159,7 +159,7 @@ Note: This contains references to Passenger and Group instance(s) defined in the
 																					</xsd:annotation>
 																					<xsd:complexType>
 																						<xsd:choice>
-																							<xsd:element ref="PassengerRef">
+																							<xsd:element ref="PassengerReferences">
 																								<xsd:annotation>
 																									<xsd:documentation>Association to multiple Passenger instance(s). Example: pax1 pax2</xsd:documentation>
 																								</xsd:annotation>
@@ -183,12 +183,11 @@ Note: This contains references to Passenger and Group instance(s) defined in the
 																								</xsd:annotation>
 																								<xsd:complexType>
 																									<xsd:choice>
-																										<xsd:element ref="PassengerRef">
+																										<xsd:element ref="PassengerReferences">
 																											<xsd:annotation>
 																												<xsd:documentation>Association to multiple Passenger instance(s). Example: pax1 pax2</xsd:documentation>
 																											</xsd:annotation>
 																										</xsd:element>
-																										<xsd:element ref="SegmentRef"/>
 																										<xsd:element ref="GroupReference"/>
 																									</xsd:choice>
 																								</xsd:complexType>
